@@ -1,0 +1,8 @@
+// Create a copy of this file named "publish.sbt" and fill in username and password to enable publishing
+
+val repo: String     = sys.env.getOrElse("REPO_SERVER", "repo.ascendify.com")
+val repoUser: String = sys.env.getOrElse("REPO_USERNAME", "")
+val repoPass: String = sys.env.getOrElse("REPO_PASSWORD", "")
+
+credentials += Credentials("Sonatype Nexus Repository Manager", repo, repoUser, repoPass)
+publishTo := Some("Sonatype Snapshots Nexus" at s"https://$repo/repository/core/")

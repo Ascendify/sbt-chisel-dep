@@ -17,13 +17,6 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { x => false }
 
-publishTo := Some(
-  if (isSnapshot.value)
-    Opts.resolver.sonatypeSnapshots
-  else
-    Opts.resolver.sonatypeStaging
-)
-
 pomExtra :=
   <url>http://chisel.eecs.berkeley.edu/</url>
   <licenses>
